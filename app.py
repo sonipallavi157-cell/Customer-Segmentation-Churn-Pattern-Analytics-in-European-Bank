@@ -8,6 +8,8 @@ st.write("Predict whether a bank customer will exit or not.")
 
 # Load dataset
 data = pd.read_csv("European_Bank.csv")
+st.write(data.columns.tolist())
+st.stop
 
 # Drop unnecessary columns
 data = data.drop(["Year","CustomerID", "Surname"], axis=1)
