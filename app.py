@@ -10,7 +10,7 @@ st.write("Predict whether a bank customer will exit or not.")
 data = pd.read_csv("European_Bank.csv")
 
 # Drop unnecessary columns
-data = data.drop(["RowNumber","CustomerID", "Surname"], axis=1)
+data = data.drop(["Year","CustomerID", "Surname"], axis=1)
 
 # Convert categorical columns
 data["Gender"] = data["Gender"].map({"Male": 1, "Female": 0})
