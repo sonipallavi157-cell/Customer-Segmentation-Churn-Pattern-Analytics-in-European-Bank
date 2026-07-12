@@ -122,22 +122,25 @@ geo_germany = 1 if geography == "Germany" else 0
 geo_spain = 1 if geography == "Spain" else 0
 
 
-input_data = pd.DataFrame(
-    [[
-        credit_score,
-        gender_value,
-        age,
-        tenure,
-        balance,
-        num_products,
-        has_credit_card,
-        active_member,
-        salary,
-        geo_germany,
-        geo_spain
-    ]],
-    columns=X.columns
-)
+# Create input dataframe with same columns as training data
+
+input_data = pd.DataFrame(0, index=[0], columns=X.columns)
+
+input_data["CreditScore"] = credit_score
+input_data["Gender"] = gender_value
+input_data["Age"] = age
+input_data["Tenure"] = tenure
+input_data["Balance"] = balance
+input_data["NumOfProducts"] = num_products
+input_data["HasCrCard"] = has_credit_card
+input_data["IsActiveMember"] = active_member
+input_data["EstimatedSalary"] = salary
+
+if "Geography_Germany" in X.columns:
+    input_data["Geography_Germany"] = geo_germany
+
+if "Geography_Spain" in X.columns:
+    input_data["Geography_Spain"] = geo_spain
 
 
 # Prediction button
